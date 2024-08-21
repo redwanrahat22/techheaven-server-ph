@@ -84,6 +84,13 @@ const client = new MongoClient(uri, {
           
         })
 
+        app.get('/update/:brand/:id',async(req,res)=>{
+          const id  = req.params.id
+          const brand = req.params.brand
+          const query = {_id : new ObjectId(id)}
+          const result = await techDatabase.collection(`${brand}`).findOne(query)
+          res.send(result)
+        })
        
 
         app.put('/productDB',async(req,res)=>{
@@ -104,14 +111,6 @@ const client = new MongoClient(uri, {
               rating: UpdateData.rating
             }
            }
-           app.get('/update/:brand/:id',async(req,res)=>{
-            const id  = req.params.id
-            const brand = req.params.brand
-            const query = {_id : new ObjectId(id)}
-            const result = await techDatabase.collection(`${brand}`).findOne(query)
-            res.send(result)
-          })
-
            const result = await techDatabase.collection(`${UpdateData.brand}`).updateOne(filter,tech,options)
            res.send(result)
         })
@@ -135,13 +134,10 @@ const client = new MongoClient(uri, {
 
 
 
-      // Connect the client to the server	(optional starting in v4.7)
-      
-      // Send a ping to confirm a successful connection
       await client.db("admin").command({ ping: 1 });
       console.log("Pinged your deployment. You successfully connected to MongoDB!");
     } finally {
-      // Ensures that the client will close when you finish/error
+
      
     }
   }
