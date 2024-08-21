@@ -34,7 +34,7 @@ const client = new MongoClient(uri, {
     try {
       await client.connect();
 
-            //const techDatabase = client.db("tech-heaven").collection("storage")
+   
             const techDatabase = client.db("All-Products")
             
     
