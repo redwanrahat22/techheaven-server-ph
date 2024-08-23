@@ -42,7 +42,7 @@ const client = new MongoClient(uri, {
         app.post('/productDB',async(req,res)=>{
             productData = req.body
             nameDB = productData.brand
-          
+            console.log(productData,nameDB)
             const submit = await techDatabase.collection(nameDB).insertOne(productData)
             res.send(submit)
         })
