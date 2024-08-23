@@ -23,17 +23,14 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@heaven1.sxh69xa.mongodb.net/?retryWrites=true&w=majority&appName=heaven1`;
 
 const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  keepAlive: true,
-  keepAliveInitialDelay: 300000, // 5 minutes
-});
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
+  });
 
+  
   async function run()
  {
 
