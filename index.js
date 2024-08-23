@@ -3,6 +3,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 const app = express()
+/* const port = process.env.PORT || 5000 */
 const port = process.env.PORT || 5000
 
 app.use(cors());
@@ -48,14 +49,14 @@ const client = new MongoClient(uri, {
 
         app.post('/users',async(req,res)=>{
             const userData = req.body
-        
+          
             const result = await techDatabase.collection('UserData').insertOne(userData)
             res.send(result)
         })
 
         app.get('/users/:useremail',async(req,res)=>{
           const Useremail = req.params.useremail.replace(/['"]+/g, '')
-         
+              
           const query = {email: Useremail}
          
           const result = await techDatabase.collection('UserData').findOne(query)
