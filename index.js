@@ -39,8 +39,8 @@ const client = new MongoClient(uri, {
 
    
             const techDatabase = client.db("All-Products")
-            
-            app.get('/',async(req,res)=>{
+
+            app.get('/test',async(req,res)=>{
               res.send('server is running in try mongodb')
             })
             
