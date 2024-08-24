@@ -150,7 +150,7 @@ const client = new MongoClient(uri, {
       await client.db("admin").command({ ping: 1 });
       console.log("Pinged your deployment. You successfully connected to MongoDB!");
     } finally {
-
+      console.log('bye')
      
     }
   }
