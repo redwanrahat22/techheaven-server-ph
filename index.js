@@ -54,7 +54,7 @@ const client = new MongoClient(uri, {
         app.post('/productDB',async(req,res)=>{
             productData = req.body
             nameDB = productData.brand
-            console.log(productData,nameDB)
+           
             const submit = await techDatabase.collection(nameDB).insertOne(productData)
             res.send(submit)
         })
@@ -68,7 +68,7 @@ const client = new MongoClient(uri, {
 
         app.get('/users/:useremail',async(req,res)=>{
           const Useremail = req.params.useremail.replace(/['"]+/g, '')
-              
+             
           const query = {email: Useremail}
          
           const result = await techDatabase.collection('UserData').findOne(query)
