@@ -19,8 +19,15 @@ app.get('/',async(req,res)=>{
 })
 
 
+
+
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@heaven1.sxh69xa.mongodb.net/?retryWrites=true&w=majority&appName=heaven1`;
+
+
+//const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@heaven1.sxh69xa.mongodb.net/?retryWrites=true&w=majority&appName=heaven1`;
+
+
+const uri = `mongodb+srv://vercel-admin-user:Ver.cel2418@heaven1.sxh69xa.mongodb.net/?retryWrites=true&w=majority&appName=heaven1`;
 
 const client = new MongoClient(uri, {
     serverApi: {
