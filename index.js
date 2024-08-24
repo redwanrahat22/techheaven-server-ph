@@ -40,6 +40,10 @@ const client = new MongoClient(uri, {
    
             const techDatabase = client.db("All-Products")
             
+            app.get('/',async(req,res)=>{
+              res.send('server is running in try mongodb')
+            })
+            
     
         app.post('/productDB',async(req,res)=>{
             productData = req.body
